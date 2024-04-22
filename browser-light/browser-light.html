@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-4">
           <h2 class="fs-5">Color Selection</h2>
-          <p><input type="color" id="color-selector" onchange="setBackgroundColor(0, -1, -1, 5)" value="#FFFFFF" style="width: 10em;"><span class="ms-2" id="color-selector-value">#ff0000</span></p>
+          <p><input type="color" id="color-selector" onchange="setBackgroundColor()" value="#FFFFFF" style="width: 10em;"><span class="ms-2" id="color-selector-value">#FFFFFF</span></p>
           <p class="d-inline-flex gap-1">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Color Presets</button>
           </p>
@@ -49,13 +49,14 @@
         let color = '';
 
         if (paramColor == '') {
-          color = document.getElementById("color-selector").value;
+          color = $('#color-selector').val();
         } // end if test
         else {
           color = paramColor;
         } // end else test
 
         $('#color-selector-value').text(color);
+        $('#color-selector').val(color);
         document.body.style.background = color;
       } // end setBackgroundColor function
 
